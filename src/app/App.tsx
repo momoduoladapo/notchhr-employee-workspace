@@ -4,13 +4,13 @@ import {
   Bell, BookOpen, Calendar, Clock, FileText, DollarSign,
   AlertCircle, Eye, EyeOff, Plus, ChevronDown,
   LayoutDashboard, Users, Briefcase, Award,
-  User, Upload, Shield, Coffee, Laptop, ArrowRight,
+  User, Upload, Shield, Laptop, ArrowRight,
   Monitor, Tablet, Smartphone, CheckSquare, Lock,
   Target, Star, GraduationCap, Heart, AlertTriangle, TrendingUp,
   LayoutGrid, Globe, HelpCircle, LogOut, Check, Settings,
   Command, X, Info, Sliders, GripVertical, Pencil, RotateCcw, MessageCircle,
   ExternalLink, ChevronRight, ChevronLeft, Pin, Bookmark, Building2, BadgeCheck, Phone, CheckCircle,
-  LogIn, Timer, CalendarClock, Home, Moon, Sun,
+  Home, Moon, Sun,
 } from "lucide-react";
 import { toast, Toaster } from "sonner";
 import { PieChart, Pie, Cell } from "recharts";
@@ -48,9 +48,11 @@ import {
   AcademicProfessionalCard, PayrollHistoryCard, PensionCard, TaxHistoryCard,
   EmploymentDetailsCard, RecruitmentCard, TimeTrackerCard,
 } from "./cards";
+import { AttendanceCard } from "./AttendanceCard";
+import { AttendancePanel } from "./AttendancePanel";
 import { AuthFlow } from "./auth";
 
-function Dashboard({ scenario, plan, viewMode, tourEditMode = false }: { scenario: ScenarioId; plan: PlanId; viewMode: ViewMode; tourEditMode?: boolean }) {
+function Dashboard({ scenario, plan, viewMode, activeOrgId, tourEditMode = false }: { scenario: ScenarioId; plan: PlanId; viewMode: ViewMode; activeOrgId: string; tourEditMode?: boolean }) {
   const [leaveFilter, setLeaveFilter] = useState<{ by: "dept" | "cadre" | "role"; value: string } | null>(null);
   const [leaveDropdownOpen, setLeaveDropdownOpen] = useState(false);
   const [leaveReqTab, setLeaveReqTab] = useState<"data" | "empty">("data");
@@ -64,6 +66,9 @@ function Dashboard({ scenario, plan, viewMode, tourEditMode = false }: { scenari
   const togglePin = (title: string) => setPinnedAnnouncement(prev => prev === title ? null : title);
   const [calOffset, setCalOffset] = useState(0); // months relative to current WAT month
   const [attendanceView, setAttendanceView] = useState(0); // 0 = regular, 1 = shift
+  const [attendanceOpen, setAttendanceOpen] = useState(false);
+  const runQuickAction = (qa: { label: string; toast: string; hint: string }) =>
+    qa.label === "View Attendance" ? setAttendanceOpen(true) : toast(qa.toast, { description: qa.hint });
   const [qaEditOpen, setQaEditOpen] = useState(false);
   const [customQALabels, setCustomQALabels] = useState<string[] | null>(null);
   const [qaEditorDraft, setQaEditorDraft] = useState<string[]>([]);
@@ -359,159 +364,7 @@ function Dashboard({ scenario, plan, viewMode, tourEditMode = false }: { scenari
       );
 
       case "attendance": return (
-        <Card className="h-full flex flex-col">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-4 flex-shrink-0">
-            <span className="text-[13px] font-semibold" style={{ color: C.tertiary }}>Attendance</span>
-            {scenario === 1 ? (
-              <div className="flex gap-0">
-                {(["Regular", "Shift"] as const).map((tab, i) => (
-                  <button
-                    key={tab}
-                    onClick={() => setAttendanceView(i)}
-                    className="pb-1 ml-4 text-[11px] font-medium transition-colors whitespace-nowrap flex-shrink-0"
-                    style={{ color: attendanceView === i ? C.magentaIcon : C.tertiary300, borderBottom: attendanceView === i ? `2px solid ${C.magenta}` : "2px solid transparent" }}
-                  >
-                    {tab}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <button className="text-[11px] font-semibold" style={{ color: C.magentaIcon }}>View Attendance</button>
-            )}
-          </div>
-          {scenario === 2 ? (
-            <div className="flex flex-col items-center text-center py-3 gap-2">
-              <div className="w-10 h-10 rounded-2xl flex items-center justify-center mb-1 flex-shrink-0" style={{ background: S.warning50 }}>
-                <Clock size={18} style={{ color: S.warning }} />
-              </div>
-              <div className="text-[12px] font-semibold" style={{ color: C.tertiary }}>You have not been assigned to a work schedule.</div>
-              <div className="text-[10px] leading-relaxed" style={{ color: C.tertiary }}>Please contact your admin or HR.</div>
-            </div>
-          ) : scenario === 3 ? (
-            <div className="flex-1 flex items-center justify-center">
-              <EmptyCard icon={Clock} title="No attendance records yet" body="Your attendance will be tracked here once you have been assigned to a work schedule." />
-            </div>
-          ) : (
-            <div className="flex-1 flex flex-col min-h-0">
-              {attendanceView === 0 ? (
-              /* ── Standard view ─────────────────────────────────────────── */
-              <div className="flex-1 flex flex-col min-h-0">
-                {[
-                  { icon: LogIn,        label: "Clocked in at",    value: "9:00 AM",           pill: false, status: null },
-                  { icon: Timer,        label: "Hours Worked",     value: "4h 38m",            pill: false, status: null },
-                  { icon: CheckCircle,  label: "Attendance Status",value: "Present",           pill: true,  status: "Present" as const },
-                  { icon: CalendarClock,label: "Today's Schedule", value: "9:00 AM – 5:00 PM", pill: false, status: null },
-                  { icon: Coffee,       label: "Break Remaining",  value: "45 mins",           pill: false, status: null },
-                ].map(row => (
-                  <div key={row.label} className="flex-1 flex justify-between items-center py-1 border-b border-border last:border-0 min-h-0">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <row.icon size={13} style={{ color: C.tertiary, flexShrink: 0 }} />
-                      <span className="text-[11px] font-medium truncate" style={{ color: C.tertiary400 }}>{row.label}</span>
-                    </div>
-                    {row.pill
-                      ? <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full" style={{
-                          background: row.status === "Present" ? S.success50 : row.status === "Late" ? S.warning50 : S.error50,
-                          color: row.status === "Present" ? S.success : row.status === "Late" ? S.warning : S.error,
-                        }}>{row.value}</span>
-                      : <span className="text-[12px] font-semibold flex-shrink-0 ml-2" style={{ color: C.tertiary }}>{row.value}</span>}
-                  </div>
-                ))}
-              </div>
-              ) : (
-              /* ── Shift / rotational view ────────────────────────────────── */
-              <div className="flex-1 flex flex-col min-h-0">
-                {[
-                  { icon: CalendarClock, label: "Today's Shift",   value: "Morning Shift",     pill: false },
-                  { icon: Clock,         label: "Scheduled",       value: "8:00 AM — 4:00 PM", pill: false },
-                  { icon: LogIn,         label: "Clocked In",      value: "7:52 AM",           pill: false },
-                  { icon: CheckCircle,   label: "Shift Status",    value: "Present",           pill: true  },
-                  { icon: ChevronRight,  label: "Next Rotation",   value: "Tomorrow · 4 PM – 12 AM", pill: false },
-                ].map(row => (
-                  <div key={row.label} className="flex-1 flex justify-between items-center py-1 border-b border-border last:border-0 min-h-0">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <row.icon size={13} style={{ color: C.tertiary, flexShrink: 0 }} />
-                      <span className="text-[11px] font-medium" style={{ color: C.tertiary400 }}>{row.label}</span>
-                    </div>
-                    {row.pill
-                      ? <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex-shrink-0" style={{ background: S.success50, color: S.success }}>{row.value}</span>
-                      : <span className="text-[11px] font-semibold flex-shrink-0 ml-2" style={{ color: C.tertiary }}>{row.value}</span>}
-                  </div>
-                ))}
-              </div>
-              )}
-              {/* Week dot strip */}
-              {(() => { /* flex-shrink-0 applied inside */
-                const WAT = "Africa/Lagos";
-                const todayWAT = new Date(new Date().toLocaleString("en-US", { timeZone: WAT }));
-                const dow = todayWAT.getDay(); // 0=Sun,1=Mon,...,5=Fri,6=Sat
-                const monday = new Date(todayWAT);
-                monday.setDate(todayWAT.getDate() - (dow === 0 ? 6 : dow - 1));
-                const weekDays = Array.from({ length: 5 }, (_, i) => {
-                  const d = new Date(monday);
-                  d.setDate(monday.getDate() + i);
-                  const isToday = d.toDateString() === todayWAT.toDateString();
-                  const isPast  = d < todayWAT && !isToday;
-                  const wdIdx   = d.getDay(); // 3 = Wednesday
-                  // Mock: Wednesday is "late", today + all other past days are "present"
-                  const status  = (isToday || isPast) ? (wdIdx === 3 ? "late" : "present") : "upcoming";
-                  return {
-                    day: d.toLocaleDateString("en-US", { weekday: "short", timeZone: WAT }).slice(0, 3),
-                    label: d.toLocaleDateString("en-US", { day: "numeric", timeZone: WAT }),
-                    status,
-                    isToday,
-                  };
-                });
-                const monLabel = monday.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: WAT });
-                const friDate  = new Date(monday); friDate.setDate(monday.getDate() + 4);
-                const friLabel = friDate.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: WAT });
-                return (
-                  <div className="flex-shrink-0 border-t border-border pt-3 mt-2">
-                    <div className="flex justify-between items-center mb-2.5">
-                      <span className="text-[10px] font-semibold" style={{ color: C.tertiary }}>This Week</span>
-                      <span className="text-[9px]" style={{ color: C.tertiary300 }}>{monLabel} – {friLabel}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      {weekDays.map(d => {
-                        const dotBg   = d.status === "present" ? "#22c55e"
-                                      : d.status === "late"    ? "#ef4444"
-                                      : C.purple200;
-                        const ringCol = d.status === "present" ? "#86efac"
-                                      : d.status === "late"    ? "#fca5a5"
-                                      : C.purple200;
-                        return (
-                          <div key={d.day} className="flex flex-col items-center gap-1">
-                            <span className="text-[9px] font-medium" style={{ color: d.isToday ? C.tertiary : C.tertiary300 }}>{d.day}</span>
-                            <div style={{
-                              width: 26, height: 26, borderRadius: "50%",
-                              background: dotBg,
-                              border: d.isToday ? `3px solid ${ringCol}` : "3px solid transparent",
-                              boxSizing: "border-box",
-                              boxShadow: d.isToday ? `0 0 0 3px ${ringCol}40` : "none",
-                            }} />
-                            <span className="text-[8px]" style={{ color: d.isToday ? C.tertiary : C.tertiary300 }}>{d.label}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <div className="flex items-center gap-3 mt-3 flex-wrap">
-                      {[
-                        { col: "#22c55e", label: "Present"  },
-                        { col: "#ef4444", label: "Late"     },
-                        { col: C.purple200, label: "Upcoming"},
-                      ].map(l => (
-                        <div key={l.label} className="flex items-center gap-1">
-                          <div style={{ width: 7, height: 7, borderRadius: "50%", background: l.col, flexShrink: 0 }} />
-                          <span className="text-[8.5px]" style={{ color: C.tertiary300 }}>{l.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
-          )}
-        </Card>
+        <AttendanceCard scenario={scenario} organisationId={activeOrgId} view={attendanceView} onViewChange={setAttendanceView} onViewAttendance={() => setAttendanceOpen(true)} />
       );
 
       case "leave-summary": return (
@@ -1372,7 +1225,7 @@ function Dashboard({ scenario, plan, viewMode, tourEditMode = false }: { scenari
                         <button
                           key={qa.label}
                           title={qa.hint}
-                          onClick={() => toast(qa.toast, { description: qa.hint })}
+                          onClick={() => runQuickAction(qa)}
                           className="flex flex-col items-center justify-center gap-1.5 rounded-xl border transition-colors p-2 text-center"
                           style={{ background: "transparent", borderColor: C.purple100, gridColumn: isLastOdd ? "span 2" : undefined }}
                           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = C.purple100; (e.currentTarget as HTMLElement).style.borderColor = C.purple200; }}
@@ -1995,7 +1848,7 @@ function Dashboard({ scenario, plan, viewMode, tourEditMode = false }: { scenari
               <button
                 key={qa.label}
                 title={qa.hint}
-                onClick={() => toast(qa.toast, { description: qa.hint })}
+                onClick={() => runQuickAction(qa)}
                 className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border flex-shrink-0"
                 style={{ background: "var(--card)", borderColor: C.purple200, color: C.tertiary }}
               >
@@ -2029,6 +1882,10 @@ function Dashboard({ scenario, plan, viewMode, tourEditMode = false }: { scenari
             const visible = previewOrder.filter(isPlanCard).filter(id => renderCardById(id) !== null);
             return renderRow(visible, isMobile ? "grid-cols-1" : "grid-cols-2", 0);
           })()}</>
+      )}
+
+      {attendanceOpen && (
+        <AttendancePanel scenario={scenario} organisationId={activeOrgId} isMobile={isMobile} onClose={() => setAttendanceOpen(false)} />
       )}
 
     </div>
@@ -2257,7 +2114,7 @@ function DashboardHeader({ scenario, plan, viewMode, tourStep, onTourStep, onTou
       </div>
 
       {/* Global Search — full-width, already self-positions */}
-      <GlobalSearch isOpen={activePanel === "search"} onClose={close} />
+      <GlobalSearch scenario={scenario} organisationId={activeOrgId} isOpen={activePanel === "search"} onClose={close} />
 
       {/* Shared backdrop for all non-search panels */}
       {activePanel && activePanel !== "search" && (
@@ -2535,7 +2392,7 @@ export default function App() {
         <div style={{ ...frameStyle, position: "relative" }}>
           <DashboardHeader scenario={scenario} plan={plan} viewMode={viewMode} tourStep={tourStep} onTourStep={setTourStep} onTourComplete={completeTour} tourCompleted={tourCompleted} activeOrgId={activeOrgId} onLogout={() => { setAuthInitialStep("login"); setIsLoggedIn(false); setActiveOrgId("mtn-001"); }} onSwitchOrg={() => { setAuthInitialStep("org-select"); setIsLoggedIn(false); }} isDark={isDark} onToggleTheme={toggleTheme} />
           <main style={{ flex: 1, overflowY: "auto", overflowX: "hidden", background: C.bg }}>
-            <Dashboard scenario={scenario} plan={plan} viewMode={viewMode} tourEditMode={false} />
+            <Dashboard scenario={scenario} plan={plan} viewMode={viewMode} activeOrgId={activeOrgId} tourEditMode={false} />
           </main>
         </div>
       </div>

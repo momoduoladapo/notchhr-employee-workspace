@@ -4,7 +4,7 @@
 import type {
   User, Employee, Organization, AttendanceRecord, LeaveRequest, LeaveBalance,
   PayrollRecord, JobPosting, Candidate, Course, KPI, PerformanceReview,
-  Document, Announcement, CompanyEvent, Department, AttendanceSummary,
+  Document, Announcement, CompanyEvent, Department, WorkSchedule, AttendanceScope,
 } from "../types";
 
 // GET /api/organizations
@@ -51,23 +51,54 @@ export const MOCK_EMPLOYEES: Employee[] = [
   { id: "emp-012", employeeId: "MTN-2019-0088", firstName: "Mohammed", lastName: "Aliyu", email: "mohammed.aliyu@mtn.com", phone: "+234 811 777 8899", jobTitle: "Data Engineer", department: "Product & Technology", departmentId: "dept-001", managerName: "Adaeze Okonkwo", status: "active", employmentType: "full-time", startDate: "2019-11-04", location: "Lagos", gender: "male", gradeLevel: "L4" },
 ];
 
-// GET /api/attendance/summary, GET /api/attendance
-export const MOCK_ATTENDANCE_SUMMARY: AttendanceSummary = {
-  totalDays: 22, present: 19, absent: 1, late: 2, halfDay: 0, remote: 3, onLeave: 0, attendanceRate: 91,
+// Attendance — simulated. Employees without an entry here have no work schedule.
+export const MOCK_SCHEDULES: Record<string, WorkSchedule> = {
+  "emp-001":   { start: "09:00", end: "17:00" }, // Adaeze Okonkwo (MOCK_USER)
+  "ws-active": { start: "09:00", end: "17:00" }, // Shola Adeleke (Employee Workspace, active)
 };
 
-export const MOCK_ATTENDANCE: AttendanceRecord[] = [
-  { id: "att-001", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-14", clockIn: "08:47", clockOut: "17:32", hoursWorked: 8.75, status: "present" },
-  { id: "att-002", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-13", clockIn: "09:15", clockOut: "18:00", hoursWorked: 8.75, status: "late" },
-  { id: "att-003", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-12", clockIn: "08:30", clockOut: "17:00", hoursWorked: 8.5, status: "present" },
-  { id: "att-004", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-11", clockIn: undefined, clockOut: undefined, status: "absent" },
-  { id: "att-005", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-08", clockIn: "08:45", clockOut: "17:15", hoursWorked: 8.5, status: "present" },
-  { id: "att-006", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-07", clockIn: "08:55", clockOut: "17:30", hoursWorked: 8.58, status: "present" },
-  { id: "att-007", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-06", clockIn: "09:22", clockOut: "18:10", hoursWorked: 8.8, status: "late" },
-  { id: "att-008", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-05", clockIn: "08:30", clockOut: "17:00", hoursWorked: 8.5, status: "remote" },
-  { id: "att-009", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-04", clockIn: "08:40", clockOut: "17:20", hoursWorked: 8.67, status: "present" },
-  { id: "att-010", employeeId: "emp-001", employeeName: "Adaeze Okonkwo", date: "2024-11-01", clockIn: "08:50", clockOut: "17:45", hoursWorked: 8.92, status: "present" },
-];
+const hhmm = (mins: number) =>
+  `${String(Math.floor(mins / 60)).padStart(2, "0")}:${String(mins % 60).padStart(2, "0")}`;
+
+/**
+ * Past weekday records from the start of last month up to the day before `todayKey`.
+ * Wednesdays are late, matching the workspace's "This Week" strip.
+ */
+export function buildMockAttendance({ organisationId, employeeId }: AttendanceScope, todayKey: string): AttendanceRecord[] {
+  const DAY = 86_400_000;
+  const [y, m, d] = todayKey.split("-").map(Number);
+  const today = Date.UTC(y, m - 1, d);
+  const weekStart = today - ((new Date(today).getUTCDay() + 6) % 7) * DAY;
+  const records: AttendanceRecord[] = [];
+
+  for (let t = Date.UTC(y, m - 2, 1); t < today; t += DAY) {
+    const day = new Date(t);
+    const dow = day.getUTCDay();
+    if (dow === 0 || dow === 6) continue;
+    const dom = day.getUTCDate();
+    const date = day.toISOString().slice(0, 10);
+    const base = { id: `att-${employeeId}-${date}`, employeeId, date, sessions: [] };
+
+    if (t < weekStart && dow === 1 && dom >= 8 && dom <= 14) {
+      records.push({ ...base, status: "absent" });
+      continue;
+    }
+    const late = dow === 3;
+    const inMins = late ? 9 * 60 + 12 + (dom % 10) : 8 * 60 + 44 + ((dom * 7) % 15);
+    const outMins = 17 * 60 + 2 + ((dom * 5) % 28);
+    records.push({
+      ...base,
+      sessions: [{
+        id: `${base.id}-1`, employeeId, organisationId,
+        clockInAt: `${date}T${hhmm(inMins)}:00+01:00`, clockOutAt: `${date}T${hhmm(outMins)}:00+01:00`, // Africa/Lagos
+        durationMs: (outMins - inMins) * 60_000, status: "completed",
+      }],
+      hoursWorked: Math.round(((outMins - inMins) / 60) * 100) / 100,
+      status: late ? "late" : dow === 5 && dom <= 7 ? "remote" : "present",
+    });
+  }
+  return records;
+}
 
 // GET /api/leave/balances, GET /api/leave/requests
 export const MOCK_LEAVE_BALANCES: LeaveBalance[] = [

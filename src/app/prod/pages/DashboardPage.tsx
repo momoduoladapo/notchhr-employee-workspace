@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Clock, Users, Calendar, TrendingUp, BookOpen, ChevronRight, CheckCircle, Bell, Play } from "lucide-react";
-import { Card, StatCard, Badge, Button, LoadingSpinner, PageHeader } from "../components/ui";
+import { Card, StatCard, Badge, Button, LoadingSpinner, ConfirmDialog } from "../components/ui";
 import { useAuth } from "../store/AuthContext";
+import { useAttendance } from "../store/useAttendance";
+import { formatInstant } from "../services/attendanceSimulation";
 import {
-  attendanceService, leaveService, announcementService,
+  leaveService, announcementService,
   eventService, learningService, employeeService,
 } from "../services/api";
-import type { AttendanceSummary, LeaveBalance, Announcement, CompanyEvent, Course, Employee } from "../types";
-
-type ClockState = "idle" | "clocked-in" | "clocked-out";
+import type { LeaveBalance, Announcement, CompanyEvent, Course, Employee } from "../types";
 
 export default function DashboardPage() {
   const { user } = useAuth();
-  const [clockState, setClockState] = useState<ClockState>("idle");
-  const [clockTime, setClockTime] = useState("");
-  const [clockLoading, setClockLoading] = useState(false);
+  const attendance = useAttendance({ organisationId: user?.organization.id ?? "", employeeId: user?.id ?? "" });
+  const { phase, active, sessions, today, summary, prompt, pending } = attendance;
+  const lastClockOut = sessions.at(-1)?.clockOutAt;
   const [now, setNow] = useState(new Date());
 
-  const [summary, setSummary] = useState<AttendanceSummary | null>(null);
   const [balances, setBalances] = useState<LeaveBalance[]>([]);
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [events, setEvents] = useState<CompanyEvent[]>([]);
@@ -34,30 +33,16 @@ export default function DashboardPage() {
     if (!user) return;
     setLoading(true);
     Promise.all([
-      attendanceService.getSummary(user.employeeId),
       leaveService.getBalances(user.employeeId),
       announcementService.list(),
       eventService.list(),
       learningService.list(user.employeeId),
       employeeService.list({ department: user.departmentId }),
-    ]).then(([s, b, a, e, c, t]) => {
-      setSummary(s); setBalances(b); setAnnouncements(a);
+    ]).then(([b, a, e, c, t]) => {
+      setBalances(b); setAnnouncements(a);
       setEvents(e.slice(0, 4)); setCourses(c); setTeam(t.slice(0, 5));
     }).finally(() => setLoading(false));
   }, [user]);
-
-  async function handleClock() {
-    setClockLoading(true);
-    try {
-      if (clockState === "idle") {
-        const r = await attendanceService.clockIn();
-        setClockTime(r.time); setClockState("clocked-in");
-      } else if (clockState === "clocked-in") {
-        const r = await attendanceService.clockOut();
-        setClockTime(r.time); setClockState("clocked-out");
-      }
-    } finally { setClockLoading(false); }
-  }
 
   const hour = now.getHours();
   const greeting = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
@@ -81,34 +66,43 @@ export default function DashboardPage() {
         <Card className="flex items-center gap-4 !p-4 min-w-0">
           <div className="text-center">
             <div className="text-2xl font-bold text-foreground tabular-nums">{timeStr}</div>
-            {clockState === "clocked-in" && clockTime && (
-              <div className="text-xs text-muted-foreground">Clocked in at {clockTime}</div>
+            {active && (
+              <div className="text-xs text-muted-foreground">Clocked in at {formatInstant(active.clockInAt, today)}</div>
             )}
-            {clockState === "clocked-out" && clockTime && (
-              <div className="text-xs text-muted-foreground">Clocked out at {clockTime}</div>
+            {!active && lastClockOut && (
+              <div className="text-xs text-muted-foreground">Clocked out at {formatInstant(lastClockOut, today)}</div>
             )}
+            {prompt?.error && <div className="text-xs text-destructive" role="alert">{prompt.error.message}</div>}
           </div>
-          {clockState !== "clocked-out" && (
+          {phase !== "no-schedule" && (
             <Button
-              variant={clockState === "clocked-in" ? "danger" : "primary"}
+              variant={phase === "clocked-in" ? "danger" : "primary"}
               size="sm"
-              onClick={handleClock}
-              loading={clockLoading}
-              icon={clockState === "clocked-in" ? <CheckCircle size={14} /> : <Play size={14} />}
+              onClick={() => phase === "idle" ? attendance.clockIn("page") : attendance.requestClockOut("page")}
+              loading={pending !== null}
+              icon={phase === "clocked-in" ? <CheckCircle size={14} /> : <Play size={14} />}
             >
-              {clockState === "clocked-in" ? "Clock Out" : "Clock In"}
+              {phase === "clocked-in" ? "Clock Out" : "Clock In"}
             </Button>
           )}
-          {clockState === "clocked-out" && <Badge variant="success" dot>Done for today</Badge>}
         </Card>
+        <ConfirmDialog
+          open={prompt?.surface === "page" && prompt.action === "clock-out" && !prompt.error}
+          onClose={attendance.dismissPrompt}
+          onConfirm={attendance.confirm}
+          title="Clock out now?"
+          description="You can clock in again later."
+          confirmLabel="Clock Out"
+          loading={pending !== null}
+        />
       </div>
 
       {/* Stats */}
       {summary && (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <StatCard label="Present Days" value={summary.presentDays} sub="This month" icon={CheckCircle} iconBg="bg-[#f0fdf4]" trend={{ value: 4, positive: true }} />
-          <StatCard label="Absent Days" value={summary.absentDays} sub="This month" icon={Calendar} iconBg="bg-[#fef2f2]" />
-          <StatCard label="Late Arrivals" value={summary.lateDays} sub="This month" icon={Clock} iconBg="bg-[#fffbeb]" />
+          <StatCard label="Present Days" value={summary.present} sub="This month" icon={CheckCircle} iconBg="bg-[#f0fdf4]" trend={{ value: 4, positive: true }} />
+          <StatCard label="Absent Days" value={summary.absent} sub="This month" icon={Calendar} iconBg="bg-[#fef2f2]" />
+          <StatCard label="Late Arrivals" value={summary.late} sub="This month" icon={Clock} iconBg="bg-[#fffbeb]" />
           <StatCard label="Leave Balance" value={balances.find(b => b.type === "Annual")?.remaining ?? 0} sub="Annual leave days" icon={TrendingUp} iconBg="bg-primary/10" />
         </div>
       )}

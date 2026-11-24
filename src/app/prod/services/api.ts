@@ -6,19 +6,19 @@
 // API_BASE_URL is read from VITE_API_BASE_URL env var (set in .env.production).
 
 import type {
-  User, Employee, Department, AttendanceRecord, AttendanceSummary,
+  User, Employee, Department,
   LeaveRequest, LeaveBalance, PayrollRecord, JobPosting, Candidate,
-  Course, KPI, PerformanceReview, Document, Announcement, CompanyEvent,
+  Course, KPI, PerformanceReview, Document, Announcement, CompanyEvent, AttendanceScope,
 } from "../types";
 
 import {
   MOCK_USER, MOCK_EMPLOYEES, MOCK_DEPARTMENTS,
-  MOCK_ATTENDANCE, MOCK_ATTENDANCE_SUMMARY,
   MOCK_LEAVE_REQUESTS, MOCK_LEAVE_BALANCES, MOCK_PAYROLL,
   MOCK_JOBS, MOCK_CANDIDATES, MOCK_COURSES,
   MOCK_KPIS, MOCK_PERFORMANCE_REVIEW,
   MOCK_DOCUMENTS, MOCK_ANNOUNCEMENTS, MOCK_EVENTS, MOCK_ORGS,
 } from "../mock/data";
+import { readAttendanceState, startSession, endSession } from "./attendanceSimulation";
 
 // ── Base client (wire to real backend by replacing mock returns) ──────────────
 const API_BASE = (import.meta as unknown as { env: Record<string, string> }).env?.VITE_API_BASE_URL ?? "/api";
@@ -80,21 +80,12 @@ export const employeeService = {
   async departments(): Promise<Department[]> { await delay(); return [...MOCK_DEPARTMENTS]; },
 };
 
-// ── Attendance ─── GET /api/attendance | /attendance/summary | POST /clock-in | /clock-out
+// ── Attendance ─── simulated in this browser (see attendanceSimulation.ts); no real system is updated
 export const attendanceService = {
-  async getSummary(_empId: string): Promise<AttendanceSummary> { await delay(); return { ...MOCK_ATTENDANCE_SUMMARY }; },
-  async list(empId: string): Promise<AttendanceRecord[]> {
-    await delay();
-    return MOCK_ATTENDANCE.filter(a => a.employeeId === empId);
-  },
-  async clockIn() {
-    await delay(500);
-    return { success: true, time: new Date().toLocaleTimeString("en-NG", { hour: "2-digit", minute: "2-digit" }) };
-  },
-  async clockOut() {
-    await delay(500);
-    return { success: true, time: new Date().toLocaleTimeString("en-NG", { hour: "2-digit", minute: "2-digit" }), hoursWorked: 8.5 };
-  },
+  /** Schedule, active session, records and monthly summary. */
+  getState: readAttendanceState,
+  async clockIn(scope: AttendanceScope) { await delay(600); return startSession(scope); },
+  async clockOut(scope: AttendanceScope, sessionId: string) { await delay(600); return endSession(scope, sessionId); },
 };
 
 // ── Leave ─── GET /api/leave/balances | /leave/requests | POST /apply | PATCH approve/reject | DELETE

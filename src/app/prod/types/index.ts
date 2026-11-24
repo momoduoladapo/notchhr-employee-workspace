@@ -33,14 +33,35 @@ export interface Employee {
 export type AttendanceStatus = "present" | "absent" | "late" | "half_day" | "remote" | "on_leave" | "holiday";
 
 export interface AttendanceRecord {
-  id: string; employeeId: string; employeeName: string; date: string;
-  clockIn?: string; clockOut?: string; hoursWorked?: number;
+  id: string; employeeId: string; date: string;
+  /** Every session that started on `date`, oldest first. */
+  sessions: AttendanceSession[];
+  /** Completed sessions only; undefined until one is completed. */
+  hoursWorked?: number;
   status: AttendanceStatus; notes?: string;
 }
 
 export interface AttendanceSummary {
   totalDays: number; present: number; absent: number; late: number;
   halfDay: number; remote: number; onLeave: number; attendanceRate: number;
+  avgHoursPerDay: number;
+}
+
+/** Working hours an employee is assigned to. Times are "HH:mm" in Africa/Lagos. */
+export interface WorkSchedule { start: string; end: string; }
+
+/** Whose attendance is being read or changed. */
+export interface AttendanceScope { organisationId: string; employeeId: string; }
+
+/** One simulated clock-in/clock-out pair, stored in this browser only. A day can have many. */
+export interface AttendanceSession {
+  id: string; employeeId: string; organisationId: string;
+  clockInAt: string;
+  /** Null while active. */
+  clockOutAt: string | null;
+  /** Null while active; use `sessionDuration` for the running time. */
+  durationMs: number | null;
+  status: "active" | "completed";
 }
 
 export type LeaveStatus = "pending" | "approved" | "rejected" | "cancelled";
@@ -124,7 +145,8 @@ export interface CompanyEvent {
 }
 
 export interface TableColumn<T> {
-  key: keyof T | string; label: string; sortable?: boolean; width?: string;
+  key: keyof T | string; header?: string; label?: string; sortable?: boolean; width?: string;
+  align?: "left" | "center" | "right";
   render?: (value: unknown, row: T) => React.ReactNode;
 }
 

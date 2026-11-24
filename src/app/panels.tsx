@@ -10,8 +10,9 @@ import { toast } from "sonner";
 import { C, S, type PlanId, type ScenarioId } from "./tokens";
 import {
   APP_MODULES, has, PLAN_META, EMPLOYEE, PHOTOS,
-  RECENT_SEARCHES, SEARCH_DATA, LANGUAGES, NOTIFS, PROFILE_GROUPS,
+  RECENT_SEARCHES, SEARCH_DATA, LANGUAGES, NOTIFS, PROFILE_GROUPS, ATTENDANCE_EMPLOYEE_ID,
 } from "./data";
+import { useAttendance } from "./prod/store/useAttendance";
 import { Av } from "./shared";
 import svgPaths from "@/imports/Header/svg-dsmq9ulj5k";
 
@@ -61,8 +62,18 @@ export function AppLauncherPanel({ plan, onClose }: { plan: PlanId; onClose: () 
   );
 }
 
-export function GlobalSearch({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+export function GlobalSearch({ scenario, organisationId, isOpen, onClose }: { scenario: ScenarioId; organisationId: string; isOpen: boolean; onClose: () => void }) {
   const [query, setQuery] = useState("");
+  const { phase, clockIn, requestClockOut } = useAttendance({ organisationId, employeeId: ATTENDANCE_EMPLOYEE_ID[scenario] });
+  const clockLabel = phase === "clocked-in" ? "Clock Out" : "Clock In";
+
+  const runAction = (label: string) => {
+    onClose();
+    if (label !== "Clock In") return;
+    if (phase === "no-schedule") toast.error("You have not been assigned to a work schedule.", { description: "Please contact your admin or HR." });
+    else if (phase === "clocked-in") requestClockOut("card");
+    else void clockIn("card");
+  };
   const hasQuery = query.trim().length > 0;
   const filtered = hasQuery
     ? SEARCH_DATA.employees.filter(e =>
@@ -118,12 +129,12 @@ export function GlobalSearch({ isOpen, onClose }: { isOpen: boolean; onClose: ()
                 <div className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: C.tertiary400 }}>Quick Actions</div>
                 <div className="space-y-0.5">
                   {SEARCH_DATA.quickActions.map(a => (
-                    <button key={a.label} onClick={onClose}
+                    <button key={a.label} onClick={() => runAction(a.label)}
                       className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-muted text-left transition-colors">
                       <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: C.purple100 }}>
                         <a.icon size={12} style={{ color: C.purpleIcon }} />
                       </div>
-                      <span className="text-[12px]" style={{ color: C.tertiary }}>{a.label}</span>
+                      <span className="text-[12px]" style={{ color: C.tertiary }}>{a.label === "Clock In" ? clockLabel : a.label}</span>
                     </button>
                   ))}
                 </div>
@@ -175,12 +186,12 @@ export function GlobalSearch({ isOpen, onClose }: { isOpen: boolean; onClose: ()
 
               <div className="px-5 pt-3 pb-1.5 text-[10px] font-bold uppercase tracking-widest" style={{ color: C.tertiary400 }}>Quick Actions</div>
               {SEARCH_DATA.quickActions.map(a => (
-                <button key={a.label} onClick={onClose}
+                <button key={a.label} onClick={() => runAction(a.label)}
                   className="w-full flex items-center gap-3 px-5 py-2.5 hover:bg-muted text-left transition-colors">
                   <div className="w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: C.purple100 }}>
                     <a.icon size={13} style={{ color: C.purpleIcon }} />
                   </div>
-                  <span className="text-[12px]" style={{ color: C.tertiary }}>{a.label}</span>
+                  <span className="text-[12px]" style={{ color: C.tertiary }}>{a.label === "Clock In" ? clockLabel : a.label}</span>
                   <ArrowRight size={13} className="ml-auto" style={{ color: C.tertiary400, flexShrink: 0 }} />
                 </button>
               ))}

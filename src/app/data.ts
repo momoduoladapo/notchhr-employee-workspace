@@ -76,6 +76,9 @@ export const EMPLOYEE = {
   3: { name: "Shola Adeleke", role: "Product Designer", dept: "Design", id: "#1042",   joined: "Jul 3, 2025",  tenure: "2 weeks",  supervisor: "Amaka Eze", gender: "female" as const },
 };
 
+// Attendance employee per scenario. Only "ws-active" has a work schedule (see prod/mock/data.ts).
+export const ATTENDANCE_EMPLOYEE_ID: Record<ScenarioId, string> = { 1: "ws-active", 2: "ws-onboarded", 3: "ws-onboarding" };
+
 // ─── Organisation accounts (data-driven; replace with API response in production) ──
 export const ORG_ACCOUNTS: OrgAccount[] = [
   {

@@ -43,7 +43,7 @@ export function DataTable<T>({
   function handleSort(col: TableColumn<T>) {
     if (!col.sortable || !col.key) return;
     if (sortKey === col.key) setSortDir(d => d === "asc" ? "desc" : "asc");
-    else { setSortKey(col.key); setSortDir("asc"); }
+    else { setSortKey(col.key as keyof T); setSortDir("asc"); }
     setPage(1);
   }
 
@@ -80,7 +80,7 @@ export function DataTable<T>({
               {columns.map(col => (
                 <th key={String(col.key ?? col.header)} onClick={() => handleSort(col)} className={cn("px-4 py-3 text-left font-semibold text-muted-foreground text-xs uppercase tracking-wide whitespace-nowrap", col.sortable && "cursor-pointer hover:text-foreground select-none", col.width && `w-[${col.width}]`)}>
                   <div className="flex items-center gap-1.5">
-                    {col.header}
+                    {col.header ?? col.label}
                     {col.sortable && (
                       sortKey === col.key
                         ? sortDir === "asc" ? <ChevronUp size={12} className="text-[#440F7C]" /> : <ChevronDown size={12} className="text-[#440F7C]" />
