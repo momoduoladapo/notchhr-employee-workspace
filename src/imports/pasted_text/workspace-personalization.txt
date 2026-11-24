@@ -1,0 +1,199 @@
+REDESIGN SLIDE 02 — REMOVE ATTENDANCE + QUICK ACTIONS
+
+The current visual for Slide 02 is not appropriate.
+
+Headline:
+"Your dashboard,
+your way"
+
+Description:
+"Personalise your workspace to reflect your role,
+your priorities, and how you work best."
+
+The current visual contains:
+- Attendance Today
+- Quick Actions
+
+REMOVE BOTH COMPLETELY.
+
+Do not replace them with another pair of feature-specific cards.
+
+==================================================
+OBJECTIVE
+==================================================
+
+This slide is about PERSONALISATION OF THE WORKSPACE.
+
+It should communicate:
+
+"Every employee can arrange their workspace around the information that matters to them."
+
+It should NOT communicate:
+
+"NotchHR has Attendance and Quick Actions."
+
+Therefore, use generic workspace content that is applicable across different NotchHR plans and organizations.
+
+==================================================
+USE GENERIC WORKSPACE CARDS
+==================================================
+
+Build the visual using actual existing workspace cards/components from the product.
+
+Preferred cards/content:
+
+1. Announcements
+2. Employee Directory
+3. Document Hub / Documents
+
+Optional:
+- Events
+- Employee Profile
+- Leave Summary
+- Company Information
+
+Prioritize cards that are broadly useful regardless of the organization's subscription configuration.
+
+Do NOT use:
+- Attendance
+- Quick Actions
+- Payroll
+- Salary
+- Employee Benefits
+- Salary on Demand
+- E-Wallet
+- other plan-dependent/specialized modules
+
+==================================================
+IMPORTANT — USE THE REAL COMPONENTS
+==================================================
+
+Do NOT invent simplified fake cards.
+
+Reuse the actual card components and visual language already present in the Employee Workspace.
+
+The visual should look like a REAL SECTION OF THE PRODUCT.
+
+Show the cards inside an actual workspace/dashboard context.
+
+==================================================
+PERSONALISATION STATE
+==================================================
+
+The most important part of this slide is showing that the cards can be rearranged.
+
+Show approximately 3 generic cards arranged in a smart workspace layout.
+
+For example:
+
+┌──────────────────────────────┐
+│ Announcements                │
+│                              │
+│ important company updates... │
+└──────────────────────────────┘
+
+┌───────────────┐ ┌───────────────┐
+│ Employee      │ │ Document Hub  │
+│ Directory     │ │               │
+│               │ │               │
+└───────────────┘ └───────────────┘
+
+The exact arrangement can be different, but it should clearly demonstrate a flexible workspace.
+
+==================================================
+SHOW PERSONALISATION WITHOUT MAKING IT LOOK LIKE A
+DRAG-AND-DROP TUTORIAL
+==================================================
+
+Do NOT put giant arrows everywhere.
+
+Do NOT create empty dashed boxes.
+
+Do NOT make the visual look like a wireframe.
+
+Instead, show a polished real-product state with a subtle indication that the cards are movable.
+
+For example:
+
+- one card slightly offset
+- subtle drag handle
+- very subtle movement cue
+- selected card state
+- light elevation on the active card
+
+Keep it elegant and premium.
+
+==================================================
+SMART GRID
+==================================================
+
+The cards must follow the Smart Fluid Grid system already being developed.
+
+Use:
+
+- 16px horizontal gap
+- 16px vertical gap
+- content-aware card widths
+- cards that expand or contract according to available space
+- no unnecessary empty space
+- no squeezed content
+- no arbitrary equal-width cards when the content doesn't require it
+
+The composition should demonstrate that the workspace intelligently accommodates different card sizes.
+
+==================================================
+VISUAL COMPOSITION
+==================================================
+
+The visual should occupy the same approximate showcase area as the current Slide 02 visual.
+
+Do not make the cards tiny.
+
+Do not stretch individual cards unnaturally.
+
+Do not create a giant empty dashboard.
+
+Show a believable proportional crop of the Employee Workspace containing these generic cards.
+
+The visual should feel like:
+
+"Here is a real employee workspace that has been arranged to suit the employee."
+
+==================================================
+PLAN INDEPENDENCE
+==================================================
+
+This is critical.
+
+The visual must remain meaningful even if:
+
+- Attendance is not enabled
+- Payroll is not enabled
+- Employee Benefits is not enabled
+- specialized financial modules are not enabled
+
+Therefore, use only broadly applicable workspace content.
+
+==================================================
+FINAL VISUAL MESSAGE
+==================================================
+
+The user should look at the slide and immediately understand:
+
+"I can make my workspace work for me."
+
+Not:
+
+"I can check my attendance."
+
+Not:
+
+"I can access quick actions."
+
+The visual is demonstrating WORKSPACE PERSONALISATION.
+
+Keep the existing NotchHR visual language, typography, purple/magenta brand treatment, spacing and premium SaaS aesthetic.
+
+Do not redesign the entire authentication page.
+
+ONLY replace the Slide 02 showcase visual.

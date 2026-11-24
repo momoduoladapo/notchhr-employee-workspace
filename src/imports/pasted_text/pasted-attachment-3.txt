@@ -1,0 +1,257 @@
+# AUTHENTICATION — FIRST WALKTHROUGH SLIDE ONLY
+
+Update **ONLY the first slide of the authentication walkthrough**.
+
+Use the uploaded reference image as the **visual/layout reference** for this first slide.
+
+The goal is to recreate the overall visual composition, hierarchy and premium feel of the reference, **but without the large employee illustration shown in the reference**.
+
+## IMPORTANT
+
+This is an addition/refinement to the existing authentication experience.
+
+Do not redesign the authentication system.
+
+Do not modify the other authentication walkthrough slides.
+
+Do not modify the authentication form on the right.
+
+Do not change authentication functionality.
+
+Do not change the existing authentication flow.
+
+Do not remove existing information unless specifically required by this prompt.
+
+Do not increase the size of the authentication card/panel.
+
+Do not reduce the size of the authentication card/panel.
+
+Only work on the **FIRST WALKTHROUGH SLIDE / LEFT VISUAL PANEL**.
+
+---
+
+# REFERENCE IMAGE
+
+Use the supplied reference image as the visual reference.
+
+Recreate its overall:
+
+* Composition
+* Spacing
+* Visual hierarchy
+* Typography hierarchy
+* Background treatment
+* Feature presentation
+* Statistics presentation
+* Decorative visual elements
+* Premium SaaS feel
+
+However:
+
+**DO NOT COPY THE LARGE ILLUSTRATION.**
+
+There must be **NO employee illustration** on this first slide.
+
+---
+
+# REMOVE THE LARGE ILLUSTRATION
+
+The large illustrated group of employees shown in the reference must NOT be reproduced.
+
+Do not replace it with:
+
+* Another illustration
+* A photograph
+* A 3D render
+* An avatar
+* A character
+* A generated person
+* A generic stock image
+
+There should be **zero people/characters in the visual area**.
+
+Instead, use the surrounding visual language of the reference to create an attractive composition without people.
+
+---
+
+# HOW TO HANDLE THE EMPTY VISUAL AREA
+
+The area previously occupied by the large illustration should become an **art-directed product/visual composition**.
+
+Use elegant abstract and UI-inspired visual elements derived from the existing NotchHR design language.
+
+For example, you may use:
+
+* Soft lavender geometric forms
+* Subtle abstract shapes
+* Layered translucent cards
+* Small interface-inspired visual fragments
+* Decorative dots
+* Soft circles
+* Floating data shapes
+* Minimal charts or visual indicators
+* Abstract workplace/product motifs
+
+But these must remain **secondary decorative elements**.
+
+Do not turn this into a dashboard screenshot.
+
+Do not create a fake application screen.
+
+Do not create readable UI content.
+
+Do not create a large complex interface.
+
+The purpose is to make the area visually rich enough to replace the visual weight of the illustration while keeping the slide clean.
+
+---
+
+# BACKGROUND
+
+Use the existing NotchHR background treatment.
+
+The main background should use:
+
+`linear-gradient(160deg, #f8f4ff 0%, #ede8fe 55%, #e2d9fd 100%)`
+
+The three stops are:
+
+* `#f8f4ff`
+* `#ede8fe`
+* `#e2d9fd`
+
+Keep the background soft and premium.
+
+Do not introduce a completely different visual style.
+
+---
+
+# BRAND COLOURS
+
+Use the existing NotchHR brand colours:
+
+**Purple:** `#440F7C`
+
+**Magenta:** `#D62196`
+
+**White:** `#FFFFFF`
+
+Purple should remain the dominant accent.
+
+Magenta should be used sparingly for emphasis.
+
+Do not turn the entire slide purple.
+
+Do not introduce unrelated dominant colours.
+
+---
+
+# COMPOSITION
+
+The first slide should visually follow the structure of the supplied reference:
+
+### Top
+
+NotchHR branding area, if this is already part of the existing first slide.
+
+### Upper content
+
+A small product/category label followed by the main headline and supporting copy.
+
+### Middle
+
+A structured feature presentation using the existing first-slide content.
+
+### Lower section
+
+The supporting statistics/information area already represented in the reference.
+
+### Bottom
+
+Existing supporting/security information where applicable.
+
+The slide should feel **full and intentionally designed**, even without the illustration.
+
+Do not leave a large obvious empty hole where the illustration used to be.
+
+---
+
+# IMPORTANT: USE EXISTING CONTENT
+
+Use the **existing first-slide authentication content already in the project**.
+
+Do not invent new marketing copy.
+
+Do not invent statistics.
+
+Do not invent product claims.
+
+Do not add new features.
+
+Do not rewrite existing copy.
+
+If the current first slide already contains feature labels, statistics or supporting information, preserve them.
+
+The visual change is the objective — **not a content rewrite**.
+
+---
+
+# VISUAL STYLE
+
+The final first slide should feel:
+
+* Premium
+* Modern
+* Artistic
+* Editorial
+* Clean
+* Sophisticated
+* Enterprise SaaS
+* Visually interesting
+* Spacious
+
+The absence of an illustration should feel **intentional**, not like an illustration was simply deleted.
+
+Use composition, shapes, spacing and subtle product-inspired visual elements to create the visual interest instead.
+
+---
+
+# DO NOT
+
+Do not:
+
+* Add people
+* Add employee illustrations
+* Add photographs
+* Add avatars
+* Add 3D characters
+* Add stock imagery
+* Change the right-side authentication form
+* Change the card dimensions
+* Change authentication functionality
+* Change the other 8 walkthrough slides
+* Add a sidebar
+* Add dashboard navigation
+* Add a footer that does not already exist
+* Invent content
+* Invent statistics
+* Rewrite the existing copy
+* Create a fake dashboard
+* Create readable UI inside decorative cards
+* Overload the slide with decorative elements
+
+---
+
+# FINAL OBJECTIVE
+
+Take the **first authentication walkthrough slide that already exists** and make its visual composition resemble the supplied reference:
+
+**strong headline + supporting copy + feature presentation + supporting statistics + artistic visual background**
+
+but with:
+
+**NO LARGE ILLUSTRATION AND NO PEOPLE.**
+
+The result should look like a deliberate **art-directed NotchHR product introduction slide**, not an authentication page with an image removed.
+
+Only make this change to the **first walkthrough slide**.

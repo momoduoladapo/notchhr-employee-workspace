@@ -1,0 +1,321 @@
+Redesign the existing **NotchHR Admin Workspace dashboard** using the attached/current dashboard as the exact structural reference.
+
+The goal is to create **Option 01 — #4D4D4D**, a sophisticated neutral-dark theme using **#4D4D4D as the primary application background**.
+
+Do not redesign the information architecture. Do not remove, add, rename, or alter any existing dashboard content, labels, statistics, navigation items, charts, or functionality.
+
+## PRIMARY BACKGROUND
+
+Use:
+
+**#4D4D4D**
+
+as the dominant background color of the application workspace.
+
+The #4D4D4D should be clearly visible across the main application canvas and should replace the current near-black background.
+
+Do not use a gradient.
+
+Do not use purple as the overall background.
+
+---
+
+# NOTCHHR BRAND COLORS
+
+Use the existing NotchHR brand colors as the primary accent system:
+
+**Primary Purple:** #440F7C
+**Accent Magenta:** #D62196
+**White:** #FFFFFF
+
+Use purple and magenta strategically rather than flooding the interface with them.
+
+Purple should primarily communicate:
+
+* Primary actions
+* Active navigation
+* Selected states
+* Important UI controls
+* Brand identity
+
+Magenta should primarily communicate:
+
+* Accent states
+* Highlights
+* Important chart data
+* Secondary emphasis
+* Rewind accents
+
+---
+
+# SURFACES / CARDS
+
+Create a clear elevation system against the #4D4D4D background.
+
+Cards should use a **dark neutral surface that is visibly different from #4D4D4D**, creating enough contrast without becoming black.
+
+Use subtle tonal layering rather than gradients.
+
+The hierarchy should feel approximately:
+
+**Application background**
+#4D4D4D
+
+↓
+
+**Primary cards / panels**
+Dark charcoal neutral
+
+↓
+
+**Inner cards / widgets**
+Slightly lighter or darker neutral depending on hierarchy
+
+↓
+
+**Purple / magenta accents**
+For interaction and emphasis
+
+Do not use excessive borders.
+
+Use subtle borders only where they improve separation.
+
+---
+
+# TYPOGRAPHY
+
+Use:
+
+**Poppins**
+
+throughout the entire interface.
+
+Typography should be crisp and highly legible against the dark surfaces.
+
+Use:
+
+* White for primary headings
+* Soft white/light neutral for important supporting text
+* Muted neutral text for secondary metadata
+* Purple/magenta only for purposeful emphasis
+
+Do not use bright purple or magenta for large amounts of body text.
+
+---
+
+# NAVIGATION
+
+Keep the existing Admin Workspace navigation structure exactly as it is.
+
+The sidebar should feel integrated into the #4D4D4D theme.
+
+Use dark charcoal tonal separation rather than a completely black sidebar.
+
+The active navigation state should use **#440F7C** with an appropriate accent treatment.
+
+Keep all existing navigation labels and hierarchy.
+
+Do not add or remove navigation items.
+
+---
+
+# TOP APPLICATION BAR
+
+Maintain the existing top application bar.
+
+Use the #4D4D4D theme consistently.
+
+Keep:
+
+* Search
+* Language selector
+* Notifications
+* Help
+* Theme control
+* User profile
+* Workspace controls
+
+Do not remove any existing controls.
+
+Use subtle surfaces and borders so these controls remain visible without becoming visually heavy.
+
+---
+
+# DASHBOARD CONTENT
+
+Keep the exact existing dashboard structure.
+
+Preserve:
+
+### Welcome area
+
+Keep the existing greeting and supporting content.
+
+### Summary cards
+
+Keep all existing:
+
+* Total Employees
+* Active Employees
+* Total Departments
+* New Hires
+* Exits
+* Quick Actions
+
+Do not change their data.
+
+Make these cards compact and premium.
+
+Use subtle tonal differences between the card surface and the #4D4D4D background.
+
+---
+
+# DATA VISUALIZATION
+
+Preserve all existing dashboard charts and data.
+
+Do not invent or modify data.
+
+### Workforce Growth
+
+Maintain the existing line/area chart.
+
+Use purple and magenta as appropriate while ensuring the chart remains readable.
+
+### Payroll Overview
+
+Maintain the existing payroll information and hierarchy.
+
+Use magenta/purple for the primary visual emphasis.
+
+### Workforce by Department
+
+Maintain the existing donut chart and department information.
+
+Use a controlled NotchHR purple/magenta palette with neutral supporting segments.
+
+### Attendance Overview
+
+Maintain the existing visualization and data.
+
+### Workforce Demographics
+
+Maintain the existing tabs and information.
+
+### Pending Approvals
+
+Maintain the existing structure and content.
+
+---
+
+# REWIND CARD
+
+Keep the existing **2025 Rewind** reminder card at the bottom-right.
+
+It should remain clearly visible against the #4D4D4D environment.
+
+Use:
+
+* Dark neutral card surface
+* Purple/magenta accent
+* White typography
+* Existing Rewind content
+* Existing close button
+* Existing "View Rewind" action
+
+Do not rewrite or add Rewind content.
+
+---
+
+# QUICK ACTIONS
+
+Keep all existing Quick Actions.
+
+Make them feel more refined against the neutral dark background.
+
+Use subtle circular/icon containers with NotchHR purple and magenta accents.
+
+Do not introduce unrelated colors.
+
+---
+
+# COLOR DISCIPLINE
+
+The interface must NOT become a generic purple dashboard.
+
+The visual foundation is:
+
+**#4D4D4D + charcoal neutrals**
+
+with:
+
+**#440F7C + #D62196**
+
+used as controlled brand accents.
+
+The result should feel:
+
+* Premium
+* Sophisticated
+* Neutral
+* Enterprise
+* Modern
+* Calm
+* High-end SaaS
+* Data-focused
+
+Avoid:
+
+* Neon purple
+* Neon pink
+* Excessive glowing effects
+* Gradients
+* Excessive shadows
+* Pure black everywhere
+* Excessive borders
+* Glassmorphism
+* Over-decoration
+
+---
+
+# CONTRAST & ACCESSIBILITY
+
+Maintain WCAG 2.2 AA accessibility.
+
+Ensure all:
+
+* Text
+* Icons
+* Buttons
+* Navigation states
+* Charts
+* Inputs
+* Controls
+
+remain clearly visible against the dark surfaces.
+
+Do not sacrifice readability for aesthetics.
+
+---
+
+# OVERALL DESIGN INTENT
+
+The final interface should feel like **NotchHR evolving from the current dark dashboard into a sophisticated charcoal enterprise product**.
+
+The key visual identity should be:
+
+**#4D4D4D background
+
+* dark charcoal surfaces
+* #440F7C purple
+* #D62196 magenta
+* Poppins
+* clean white typography**
+
+Keep the existing dashboard's content, layout, information architecture, and functionality intact.
+
+Only improve the visual design, hierarchy, spacing, surfaces, typography, contrast, and brand-color application.
+
+Do not introduce any new dashboard information.
+
+Do not remove any existing information.

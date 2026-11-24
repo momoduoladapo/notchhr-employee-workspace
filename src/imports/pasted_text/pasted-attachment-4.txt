@@ -1,0 +1,326 @@
+# NOTCHHR REWIND — WORKSPACE EXPERIENCE
+
+Design and implement **NotchHR Rewind** as a shared experience available in **both the Admin Workspace and Employee Workspace**.
+
+This is an existing NotchHR feature/content experience. Do not reinterpret, rewrite, summarize, expand, or invent any of its content.
+
+## 1. REWIND REMINDER CARD
+
+Add a small floating **NotchHR Rewind reminder card** fixed to the **bottom-right corner of the screen**.
+
+### Position
+
+* Fixed to the bottom-right of the viewport.
+* It must remain visible above the workspace content.
+* Do not place it inside the page layout.
+* It should not push, resize, or reflow the workspace.
+* Maintain a comfortable distance from the bottom and right edges.
+
+### Behaviour
+
+The reminder must behave exactly as follows:
+
+1. The Rewind reminder appears automatically.
+2. The user can close/dismiss the reminder.
+3. When dismissed, it disappears completely.
+4. After exactly **240 seconds (4 minutes)**, the reminder automatically appears again.
+5. This 240-second reappearance cycle continues.
+6. If the user clicks the reminder instead of closing it, open the full **NotchHR Rewind experience inside a modal**.
+7. Opening the Rewind modal should stop the reminder from obstructing the user.
+8. The reminder should remain dismissible.
+9. Do not make the reminder permanently disappear after one dismissal.
+
+### Reminder Design
+
+Create a compact, premium NotchHR notification/card that feels like part of the existing workspace design system.
+
+Use:
+
+* NotchHR brand language
+* Poppins typography
+* Existing NotchHR purple **#440F7C**
+* Existing NotchHR magenta **#D62196**
+* White surfaces
+* Rounded corners
+* Subtle elevation
+* Clean spacing
+* Premium SaaS styling
+
+Do not introduce unrelated colors.
+
+The reminder should clearly communicate that it is the user's **2025 NotchHR Rewind** and invite the user to open it.
+
+Do not invent additional Rewind statistics, claims, or content.
+
+---
+
+# 2. REWIND MODAL
+
+When the user clicks the reminder card, open **NotchHR Rewind in a large modal overlay**.
+
+The modal should feel like a premium year-in-review experience rather than a normal settings dialog.
+
+### Modal requirements
+
+* Large desktop-friendly modal.
+* Centered within the viewport.
+* Background workspace should remain visible behind the modal with an appropriate overlay.
+* Rounded corners.
+* Clean spacing.
+* Strong visual hierarchy.
+* Poppins typography.
+* Use the existing NotchHR visual language.
+* Make the experience responsive for desktop, tablet, and mobile.
+* Include a clear close control.
+* Closing the modal returns the user to the workspace.
+* Do not navigate the user away from the workspace.
+
+The Rewind content should be presented as a **scrollable/slide-based storytelling experience** inside the modal.
+
+Use the supplied images as the visual assets for their corresponding sections.
+
+---
+
+# 3. CONTENT SOURCE OF TRUTH
+
+The following content is the **absolute source of truth**.
+
+### CRITICAL CONTENT RULE
+
+**DO NOT ADD ANYTHING.
+DO NOT REMOVE ANYTHING.
+DO NOT REWRITE ANYTHING.
+DO NOT PARAPHRASE ANYTHING.
+DO NOT CORRECT TYPOGRAPHICAL OR GRAMMATICAL ERRORS.
+DO NOT CHANGE NUMBERS, CURRENCY, PERCENTAGES, NAMES, COURSE TITLES, OR DATES.**
+
+Preserve the content exactly as supplied.
+
+---
+
+# NOTCHHR REWIND
+
+Cover image:
+
+https://test.notchhr.io/assets/images/wrapped-cover-img.png
+
+## Your 2025 Year in Review with NotchHR
+
+**Hello 👋 GANGSTARS,**
+
+**As the curtain falls on 2025, it’s time to look back at the year your team thrived, excelled, and made every moment count.**
+
+**Here’s your company’s unique journey, as seen through the NotchHR lens. 🧐**
+
+Image:
+
+https://test.notchhr.io/assets/images/slide-2-wrap.png
+
+## Leave Management
+
+**Sorry there is no data for Leave Management Module , but not to worry utilize this module subsequently and we promise you data in the next NOTCHHR Rewind report.**
+
+Image:
+
+https://test.notchhr.io/assets/images/slide-3-wrap.png
+
+## Payroll, Payments & Remittances
+
+**Efficiency was the name of the game in 2025:**
+
+**•You processed 80 Payroll Cycles 🕕 seamlessly with NotchHR.**
+
+**•With bonuses, incentives, tax, pension and salaries combined, you managed over ₦19,215,100.87 in payouts without a hitch. 😎**
+
+Image:
+
+https://test.notchhr.io/assets/images/slide-5-wrap.png
+
+## Employee Count
+
+**Your workforce evolved significantly in this year:**
+
+**• 76 new employees joined the team, bringing fresh perspectives and energy⚡.**
+
+**• 1 employees bid farewell, moving 🚶‍♂️ on to new opportunities.**
+
+**•By year-end, your total employee count stood strong 💪 at 239 — a 469 % increase from last year.**
+
+Image:
+
+https://test.notchhr.io/assets/images/slide-6-wrap.png
+
+## E-Learning
+
+**Upskilling took center stage in 2025:**
+
+**•Your team completed 0.07 hours of training, equivalent to 0 days of continuous learning!**
+
+**•The most popular course? "TEsting HR FOrties" completed by 1 member(s) of your workforce.**
+
+**•Congratulations! TEsting HR FOrties had 1 enrollments from your team this year.**
+
+Image:
+
+https://test.notchhr.io/assets/images/slide-7-wrap.png
+
+## Performance
+
+**Your team’s dedication to excellence shone through:**
+
+**•0.38% of company-wide goals were achieved 🏆 or exceeded this year.**
+
+**2 performance reviews were conducted, fostering transparency and growth 🚀.**
+
+Image:
+
+https://test.notchhr.io/assets/images/slide-5-wrap.png
+
+## Attendance
+
+**Your team showed remarkable commitment this year:**
+
+**•The LIFE IPSALES claimed the title of “Most Punctual,” with an attendance score of 68% (take a bow 🤗, LIFE IPSALES!).**
+
+**•The busiest day? April 8, when most of employees showed up to tackle a major product launch.**
+
+Image:
+
+https://test.notchhr.io/assets/images/slide-3-wrap.png
+
+## Looking Ahead to 2026
+
+**From onboarding new talent to fostering growth through learning and development, your 2025 was nothing short of inspiring. As we gear up for 2026, let’s aim for even greater milestones together. 💪**
+
+**Here's to your continued success ✨, powered by NotchHR!**
+
+**Warm regards, 🙏 The NotchHR Team**
+
+---
+
+# 4. REWIND EXPERIENCE STRUCTURE
+
+Present the supplied sections as a sequential visual story:
+
+1. Cover / introduction
+2. Leave Management
+3. Payroll, Payments & Remittances
+4. Employee Count
+5. E-Learning
+6. Performance
+7. Attendance
+8. Looking Ahead to 2026
+
+Use the corresponding supplied image for each section.
+
+Do not create replacement images.
+
+Do not generate new statistics.
+
+Do not create additional sections.
+
+Do not create additional slides.
+
+Do not omit any supplied section.
+
+---
+
+# 5. VISUAL DIRECTION
+
+The experience should feel like a **premium annual digital rewind**, while still unmistakably belonging to NotchHR.
+
+Think:
+
+* Modern SaaS
+* Editorial storytelling
+* Premium data storytelling
+* Clean card composition
+* Large typography
+* Strong visual hierarchy
+* Generous whitespace
+* Rounded containers
+* Subtle motion
+* Smooth transitions
+* Polished interaction design
+
+Use NotchHR:
+
+* #440F7C
+* #D62196
+* #FFFFFF
+* Poppins
+
+Avoid:
+
+* Gradients
+* Unrelated colors
+* Generic dashboard styling
+* Excessive decoration
+* Stock illustrations
+* Invented graphics
+* Fake statistics
+* Fake charts
+* Fake data
+
+The supplied Rewind images are the visual source material and must be used in their corresponding sections.
+
+---
+
+# 6. BOTH WORKSPACES
+
+The Rewind reminder must be available in:
+
+* Admin Workspace
+* Employee Workspace
+
+The interaction and Rewind content should remain consistent across both workspaces.
+
+Do not create separate versions of the Rewind content.
+
+Do not duplicate the Rewind modal in the page structure.
+
+Implement it as a shared reusable experience/component that can be triggered from either workspace.
+
+---
+
+# 7. RESPONSIVE BEHAVIOUR
+
+### Desktop
+
+* Floating reminder bottom-right.
+* Large Rewind modal.
+* Storytelling layout with image and content appropriately composed.
+* Comfortable reading width.
+
+### Tablet
+
+* Maintain the floating reminder.
+* Adapt the modal dimensions to the viewport.
+* Reflow image/content where necessary.
+* Preserve the storytelling hierarchy.
+
+### Mobile
+
+* Reminder remains fixed to the bottom-right with appropriate safe spacing.
+* Rewind opens as a near-full-screen modal.
+* Content becomes vertically stacked where necessary.
+* Images remain prominent.
+* Text remains readable.
+* Do not remove any content.
+
+---
+
+# FINAL IMPLEMENTATION RULE
+
+**The Rewind DATA is the source of truth.**
+
+The design may improve hierarchy, spacing, typography, interaction, responsiveness, and presentation, but it must **never alter the supplied content**.
+
+**No addition.
+No subtraction.
+No rewriting.
+No invented data.
+No invented statistics.
+No invented sections.**
+
+The final result should feel like an integrated, polished **NotchHR 2025 Year in Review** experience available from both workspaces, triggered through a persistent bottom-right reminder that reappears every **240 seconds** after dismissal.

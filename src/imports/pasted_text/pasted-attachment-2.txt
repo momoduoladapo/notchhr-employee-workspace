@@ -1,0 +1,473 @@
+# NotchHR Authentication — Final Walkthrough & Visual Treatment
+
+Update the **existing NotchHR authentication experience** using the authentication copy and flow already present in the project.
+
+This is a **visual/layout refinement**, not a request to invent a new authentication system.
+
+## 1. DO NOT CHANGE THE AUTHENTICATION FUNCTIONALITY
+
+Maintain the existing:
+
+* Authentication flow
+* Phone number login
+* PIN entry
+* OTP verification
+* Organisation selection
+* Forgot PIN flow
+* PIN reset flow
+* Loading state
+* Validation states
+* Success state
+* Existing interactions
+* Existing dynamic data
+* Existing authentication logic
+
+Do not invent additional authentication steps.
+
+Do not add:
+
+* Username
+* Email login
+* Password login
+* Remember me
+* Sign up/register flow
+* Terms/privacy links
+* Biometric login
+* Account-lock messaging
+* Any other authentication functionality not already present.
+
+The authentication copy inventory already provided by this project is the **source of truth**.
+
+---
+
+# 2. AUTHENTICATION LAYOUT
+
+Keep the authentication experience as a **two-panel desktop composition**.
+
+### Left side
+
+This is the visual/product walkthrough area.
+
+### Right side
+
+This contains the actual authentication form.
+
+Do **NOT** introduce a sidebar.
+
+Do **NOT** turn this into a dashboard layout.
+
+Do **NOT** add dashboard navigation.
+
+Do **NOT** add a header or footer that does not belong to the authentication experience.
+
+The authentication form should remain clean, spacious and highly usable.
+
+---
+
+# 3. WALKTHROUGH MUST HAVE 9 VISUAL SLIDES
+
+The left-side walkthrough should contain **exactly 9 slides**.
+
+The first slide is a special introductory/product slide.
+
+The remaining 8 slides correspond exactly to the existing 8 feature messages already supplied in the authentication copy inventory.
+
+Do not create additional feature messages.
+
+Do not rewrite the supplied copy.
+
+Do not invent statistics, benefits or product claims.
+
+---
+
+# 4. SLIDE 1 — INTRODUCTORY VISUAL
+
+Create the first walkthrough slide as the **hero/introduction slide**.
+
+Use the existing NotchHR brand/design system.
+
+The visual treatment should communicate:
+
+**NotchHR is an all-in-one HR platform for employees.**
+
+The slide should visually introduce the employee experience before the feature slides begin.
+
+Use:
+
+* NotchHR branding
+* Existing brand colours
+* Existing typography
+* Existing visual language
+* A polished employee-at-work illustration
+* Subtle supporting UI/product visual elements where appropriate
+
+The illustration should feel like a real NotchHR product illustration rather than a generic stock illustration.
+
+Show employees interacting with work/HR-related activities.
+
+The composition should feel similar in quality to the existing NotchHR authentication design language.
+
+Do not introduce a new design system.
+
+---
+
+# 5. SLIDES 2–9 — FEATURE WALKTHROUGH
+
+Use the following **exact existing feature copy**.
+
+Do not rewrite it.
+
+Each slide must have its **own illustration**.
+
+The illustrations should show employees actually doing something related to that slide's subject.
+
+Do not reuse the same illustration across slides.
+
+Do not use generic abstract icons as the primary visual.
+
+## Slide 2 — Money
+
+Heading:
+**Your Money,**
+
+Highlight:
+**Within Reach.**
+
+Body:
+**Access your daily earnings, request future earnings, download payslips, and see your financial benefits, all in one place.**
+
+Illustration direction:
+
+Show an employee interacting with their financial/payroll information — for example viewing earnings, payslip or financial information.
+
+---
+
+## Slide 3 — Attendance
+
+Heading:
+**Always Know**
+
+Highlight:
+**Where You Stand.**
+
+Body:
+**Track your attendance, work hours, shifts, and time records without having to ask HR.**
+
+Illustration direction:
+
+Show an employee interacting with attendance, working hours, schedule or shift information.
+
+---
+
+## Slide 4 — Leave
+
+Heading:
+**Time Off Without**
+
+Highlight:
+**the Back-and-Forth.**
+
+Body:
+**Request leave, check your balance, track approvals, and plan your time away from work with ease.**
+
+Illustration direction:
+
+Show an employee requesting or reviewing leave information.
+
+---
+
+## Slide 5 — Performance
+
+Heading:
+**Your Goals.**
+
+Highlight:
+**Your Progress.**
+
+Body:
+**Keep track of your goals, performance, feedback, and achievements throughout the year.**
+
+Illustration direction:
+
+Show an employee reviewing goals, performance or progress.
+
+---
+
+## Slide 6 — Learning
+
+Heading:
+**There's Always More**
+
+Highlight:
+**to Learn.**
+
+Body:
+**Discover courses, build new skills, and keep growing with learning opportunities made available to you.**
+
+Illustration direction:
+
+Show an employee learning, taking a course or developing a skill.
+
+---
+
+## Slide 7 — Employee Self-Service
+
+Heading:
+**Everything HR,**
+
+Highlight:
+**Right at Your Fingertips**
+
+Body:
+**Access your documents, update your information, view important records, and get things done yourself.**
+
+Illustration direction:
+
+Show an employee accessing documents, employee records or HR information.
+
+---
+
+## Slide 8 — Benefits
+
+Heading:
+**Know What Comes**
+
+Highlight:
+**With Your Work.**
+
+Body:
+**See your benefits, entitlements, and other employee perks, all in one place.**
+
+Illustration direction:
+
+Show an employee reviewing benefits, entitlements or workplace perks.
+
+---
+
+## Slide 9 — Communications
+
+Heading:
+**Stay in**
+
+Highlight:
+**the Know.**
+
+Body:
+**Get important company announcements, updates, and reminders right where you need them.**
+
+Illustration direction:
+
+Show an employee receiving or reading a workplace announcement/update.
+
+---
+
+# 6. ILLUSTRATION STYLE
+
+The illustrations are important.
+
+Do not simply place an icon beside each feature.
+
+Each slide should feel like a **small visual story of an employee using NotchHR**.
+
+The illustrations should:
+
+* Represent employees at work
+* Reflect African/modern workplace diversity
+* Feel professional and enterprise-ready
+* Match NotchHR's existing visual language
+* Use the existing NotchHR colour system
+* Feel polished and intentional
+* Work naturally inside the available left-panel space
+* Have consistent visual quality across all 9 slides
+
+Do not make the illustrations photographic.
+
+Do not make them generic stock imagery.
+
+Do not use unrelated decorative imagery.
+
+---
+
+# 7. IMPORTANT — DO NOT STRETCH THE VISUALS
+
+The walkthrough visuals must be treated as **contained visual compositions**, not as giant full-width cards.
+
+Do not stretch an illustration to fill the entire left panel.
+
+Do not distort or squash illustrations.
+
+Do not crop important parts of an illustration.
+
+Do not create a giant image with a huge empty area around it.
+
+The illustration should retain its intended proportions and sit naturally within the composition.
+
+Use a subtle background/masked visual area where necessary so the illustration feels like a designed product asset.
+
+The result should feel like:
+
+**illustration + copy + ambient information**
+
+rather than:
+
+**giant stretched image + text.**
+
+---
+
+# 8. WALKTHROUGH CONTROLS
+
+Maintain the existing walkthrough navigation.
+
+Include:
+
+* Previous
+* Next
+* Slide counter
+
+The counter should represent the **9-slide walkthrough**.
+
+Example:
+
+`01 / 09`
+
+then:
+
+`02 / 09`
+
+through:
+
+`09 / 09`
+
+Do not add additional walkthrough controls that are not necessary.
+
+---
+
+# 9. EXISTING AMBIENT INFORMATION
+
+Where the current authentication walkthrough already contains:
+
+* Time
+* Date
+* WAT
+* Weather
+
+preserve the existing functionality and presentation.
+
+Do not invent new ambient information.
+
+Do not remove existing working functionality unless it conflicts with the 9-slide visual walkthrough.
+
+---
+
+# 10. RIGHT-SIDE AUTHENTICATION FORM
+
+Do not redesign the authentication logic.
+
+Refine the presentation only so that the authentication form feels like it belongs to the same polished product experience as the walkthrough.
+
+Use the exact authentication copy already supplied.
+
+The existing sequence remains:
+
+1. Sign In
+2. Enter PIN
+3. OTP Verification
+4. Select Organisation
+5. Forgot PIN — Enter Phone
+6. Forgot PIN — OTP Verification
+7. Create New PIN
+8. Confirm New PIN
+9. PIN Updated
+10. Loading transition
+
+The loading state remains a transition state and is **not a walkthrough slide**.
+
+---
+
+# 11. AUTHENTICATION COPY IS LOCKED
+
+Use the existing Authentication Copy Inventory as the source of truth.
+
+Do not paraphrase headings.
+
+Do not change button labels.
+
+Do not invent helper text.
+
+Do not add marketing copy to the authentication form.
+
+Do not add new feature claims.
+
+Do not add new product information.
+
+---
+
+# 12. RESPONSIVE BEHAVIOUR
+
+Maintain the existing responsive authentication behaviour.
+
+On desktop:
+
+**Walkthrough | Authentication**
+
+On smaller screens, preserve the existing appropriate authentication behaviour rather than forcing the desktop two-panel layout.
+
+Do not introduce a sidebar.
+
+---
+
+# 13. DESIGN QUALITY TARGET
+
+The finished result should feel:
+
+* Clean
+* Premium
+* Spacious
+* Modern
+* Human
+* Employee-focused
+* Consistent
+* Easy to understand
+* Visually engaging
+
+The walkthrough should make the authentication screen feel like the **front door to the NotchHR Employee Workspace**.
+
+It should communicate the product through visual storytelling without overwhelming the user.
+
+---
+
+# 14. HARD CONSTRAINTS
+
+DO NOT:
+
+* Add new data
+* Add new product features
+* Add new authentication steps
+* Change authentication logic
+* Change existing authentication copy
+* Invent statistics
+* Invent product claims
+* Add a sidebar
+* Add dashboard navigation
+* Add unrelated cards
+* Add unrelated modules
+* Add fake UI
+* Add unnecessary headers
+* Add unnecessary footers
+* Stretch illustrations
+* Distort illustrations
+* Reuse one illustration for every slide
+* Replace the authentication functionality
+* Create a second authentication system
+
+The objective is simply:
+
+**Keep the authentication system we already have, but make its left-side walkthrough a polished 9-slide visual introduction to the NotchHR Employee Workspace.**
+
+The first slide is the introductory NotchHR employee/workplace illustration.
+
+Slides 2–9 are the eight existing feature stories.
+
+Use the existing project data, existing authentication copy and existing NotchHR design system as the source of truth.
+
+Make the complete visual update in one pass.

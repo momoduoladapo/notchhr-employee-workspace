@@ -1,0 +1,186 @@
+REPLACE THE SLIDE 01 VISUAL — USE A REAL INTERFACE CROP, NOT A RECREATED CARD
+
+The current Slide 01 visual is wrong.
+
+Do NOT recreate the "My Workspace" / App Launcher as a standalone card.
+
+We want the walkthrough visual to show the REAL NotchHR interface with the Workspace/App Launcher actually ACTIVE.
+
+The visual should look like a proportional screenshot/crop taken directly from the actual Employee Workspace interface.
+
+==================================================
+WHAT TO CHANGE
+==================================================
+
+For Slide 01:
+
+"Everything in
+one workspace"
+
+Remove the current large standalone "My Workspace" card.
+
+Instead, create a realistic cropped product screenshot showing:
+
+- The actual NotchHR application interface.
+- The real application header/navigation.
+- The Workspace/App Launcher control in its real position.
+- The Workspace/App Launcher OPEN and ACTIVE.
+- The actual list/grid of available workspace modules.
+- The surrounding interface visible around it so the user understands that this is an active application state.
+
+The App Launcher must look like it is genuinely open on the interface.
+
+==================================================
+PROPORTIONAL CROP
+==================================================
+
+Do NOT show the entire dashboard.
+
+Do NOT create a tiny screenshot floating in the illustration.
+
+Take a carefully selected proportional crop of the actual interface.
+
+The crop should include enough surrounding UI to establish context:
+
+HEADER
++
+ACTIVE APP LAUNCHER
++
+PART OF WORKSPACE
+
+The launcher should remain at its actual relative size.
+
+Do not enlarge the launcher independently.
+
+Do not distort its proportions.
+
+Do not stretch the screenshot.
+
+Think of this as:
+
+REAL PRODUCT SCREENSHOT
+→ CROPPED TO THE MOST IMPORTANT AREA
+→ PRESENTED AS THE WALKTHROUGH VISUAL
+
+==================================================
+ACTIVE STATE
+==================================================
+
+The App Launcher must visibly be ACTIVE.
+
+For example:
+
+- launcher icon/button in its active state
+- launcher panel/dropdown visibly open
+- workspace modules visible inside it
+- surrounding application UI still visible
+- appropriate active/selected treatment
+
+The viewer should immediately understand:
+
+"This is what happens when I open the Workspace Launcher."
+
+NOT:
+
+"This is a decorative card representing a workspace launcher."
+
+==================================================
+VISUAL PRESENTATION
+==================================================
+
+Place the cropped interface inside the existing walkthrough visual area.
+
+The screenshot can have:
+
+- subtle rounded corners
+- very soft shadow
+- restrained elevation
+- subtle lavender/purple environmental treatment behind it
+
+But the screenshot itself must remain authentic to the actual NotchHR interface.
+
+Do not add decorative UI elements that don't exist in the product.
+
+Do not add random circles, floating cards, abstract blocks, or fake dashboard elements.
+
+The product screenshot is the illustration.
+
+==================================================
+SIZE
+==================================================
+
+The crop should occupy most of the available visual showcase area.
+
+However, preserve the correct aspect ratio of the source interface.
+
+The visual should feel like a meaningful portion of the application, not a tiny component enlarged to fill the space.
+
+Use a proportional crop.
+
+If the source interface is wider than the walkthrough area, crop the sides intelligently.
+
+If necessary, crop vertically.
+
+Never distort the screenshot to fit the container.
+
+==================================================
+IMPORTANT
+==================================================
+
+Use the EXISTING Employee Workspace interface already implemented in the project as the source of truth.
+
+Do not invent a new version of the Workspace Launcher.
+
+Do not recreate the launcher manually.
+
+Do not redesign the launcher for this slide.
+
+Instead, capture/reuse the actual implemented interface state where the launcher is open.
+
+The walkthrough should effectively show:
+
+"Here is the real product."
+
+==================================================
+SLIDE STORY
+
+Headline:
+Everything in
+one workspace
+
+Description:
+NotchHR brings your people, processes, and operations together in one intelligent platform.
+
+Visual:
+A proportional crop of the REAL NotchHR Employee Workspace with the Workspace/App Launcher OPEN.
+
+The active launcher should show the actual workspace modules available in the product.
+
+The crop should make the interface feel like an authentic product screenshot.
+
+==================================================
+DESIGN INTENT
+==================================================
+
+The five walkthrough slides should now follow this visual principle:
+
+SLIDE 01:
+REAL INTERFACE CROP — APP LAUNCHER ACTIVE
+
+SLIDE 02:
+REAL INTERFACE CROP — DASHBOARD / CARDS BEING PERSONALIZED
+
+SLIDE 03:
+REAL INTERFACE CROP — ACTUAL BENEFITS/PAYSLIP CARD + PRIVACY STATE
+
+SLIDE 04:
+REAL INTERFACE CROP — ACTUAL CARDS IN EDIT/DRAG MODE
+
+SLIDE 05:
+REAL INTERFACE CROP — ACTUAL ANNOUNCEMENTS CARD + PINNED STATE
+
+The walkthrough is therefore showing REAL PRODUCT STATES rather than abstract illustrations.
+
+Do not turn these into generic marketing illustrations.
+
+The interface itself is the hero.

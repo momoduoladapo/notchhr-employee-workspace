@@ -1,0 +1,373 @@
+# EMPLOYEE WORKSPACE — CURRENT-STATE AUDIT ONLY
+
+IMPORTANT: This is a documentation and audit task only.
+
+Do not modify, redesign, refactor, rearrange, add, remove, rename, restyle, or update any part of the current Employee Workspace.
+
+Do not change any code, components, layouts, cards, content, interactions, responsiveness, workspace behaviour, module availability, or plan logic.
+
+The current Employee Workspace is the approved baseline and must remain exactly as it is.
+
+Your task is to inspect the current Employee Workspace implementation and generate a complete Markdown audit document that can be used as a baseline for a later stakeholder-requested update.
+
+Generate a downloadable Markdown file named:
+
+`Employee-Workspace-Current-State.md`
+
+Do not make any changes to the project while generating this file.
+
+---
+
+# 1. WORKSPACE OVERVIEW
+
+Document:
+
+- Current purpose of the Employee Workspace
+- Current page structure
+- Current layout system
+- Current card/grid/masonry behaviour
+- Current supported screen sizes
+- Current responsive behaviour
+- Current workspace customization capabilities
+
+Describe only what currently exists.
+
+Do not suggest improvements.
+
+---
+
+# 2. COMPLETE WORKSPACE CARD INVENTORY
+
+Create a complete inventory of every card, module, widget, or workspace item currently implemented.
+
+For every item, include:
+
+- Name
+- Current purpose
+- Current content
+- Current actions
+- Whether it is visible by default
+- Whether it can be shown or hidden
+- Whether it can be removed
+- Whether it can be rearranged
+- Whether it can be added through Workspace Management
+- Whether it is mandatory or optional
+- Current plan assignment, if implemented
+
+Do not omit:
+
+- Cards visible in the default workspace
+- Cards lower on the page
+- Hidden cards
+- Cards available through Workspace Management
+- Cards available through Add Module
+- Plan-specific cards
+- Conditional cards
+
+If any information is unclear, state:
+
+**Not currently identifiable — requires confirmation**
+
+Do not guess.
+
+---
+
+# 3. CURRENT EMPLOYEE INFORMATION MODULES
+
+Audit the current implementation of:
+
+- Employee Identity / Profile
+- About Me
+- My Competency
+- My Work History
+- My Academic & Professional History
+- Employment Details
+- Payroll History
+- Pension History
+- Tax History
+
+For each item, document:
+
+- Whether it currently exists
+- Whether it is visible by default
+- Whether it is optional
+- Whether it is available through Workspace Management
+- Whether it is editable or view-only
+- Current content
+- Current actions
+- Current placement
+- Current plan availability, if implemented
+
+Do not change any of these modules.
+
+---
+
+# 4. CURRENT PAYROLL CARD
+
+Document the current Payroll or Payslip card exactly as implemented.
+
+Include:
+
+- Current card title
+- Current content
+- Current actions
+- Current footer content
+- Current app-download links or buttons
+- Current tabs, if any
+- Current card size
+- Current card placement
+- Current responsive behaviour
+
+Also state whether the following currently exist:
+
+- Payroll History
+- Pension History
+- Tax History
+- Loans
+- Rent Relief
+
+Do not add any of them.
+
+This section is documentation only.
+
+---
+
+# 5. CURRENT WORKSPACE MANAGEMENT
+
+Document all current Workspace Management functionality, including:
+
+- Workspace selector
+- Default Workspace
+- Default Workspace locked state
+- Create Workspace
+- Save Workspace
+- Workspace naming
+- Untitled workspace behaviour
+- Timestamp behaviour
+- Rename Workspace
+- Delete Workspace
+- Reset to Default
+- Unsaved workspace behaviour
+- Workspace switching
+- Workspace persistence
+- Drag-and-drop
+- Card rearrangement
+- Workspace reflow
+- Module visibility management
+- Show module
+- Hide module
+- Add Module
+- Remove Module
+
+For each feature, explain what currently happens.
+
+Do not change any Workspace Management behaviour.
+
+---
+
+# 6. IDENTITY CARD RULES
+
+Document the current Identity / Profile Card behaviour:
+
+- Is it always visible?
+- Can it be hidden?
+- Can it be removed?
+- Can it be rearranged?
+- Is it locked?
+- How is the locked or required state communicated?
+- Is it available across all plans?
+
+Do not change the Identity Card.
+
+---
+
+# 7. CURRENT PLAN AND MODULE AVAILABILITY
+
+Create a complete module availability table using these categories:
+
+- HR Basic and Payroll
+- HR Standard
+- HR Premium
+- Available across all plans
+- Not currently assigned
+- Unknown / requires confirmation
+
+For every currently implemented workspace card or module, state where it currently appears.
+
+Do not infer plan assignments from module names.
+
+Document only the current implementation.
+
+If the current implementation does not clearly show a plan assignment, write:
+
+**Requires stakeholder confirmation**
+
+---
+
+# 8. CURRENT CARD CONTENT
+
+Document the current implementation of:
+
+- Attendance
+- Payroll / Payslip
+- Announcements
+- Approvals
+- Team
+- Employee Directory
+- Quick Actions
+- Leave Summary
+- Workforce Highlights
+- Document Hub
+- Grievance and Disciplinary
+- Performance
+- Learning
+- Any other implemented card
+
+For each, include:
+
+- Current content
+- Current labels
+- Current copy
+- Current actions
+- Current indicators or badges
+- Current empty states
+- Current conditional states
+- Current plan availability
+
+Do not modify any content.
+
+---
+
+# 9. CURRENT EMPLOYEE STATES
+
+Document all employee-specific states that currently exist.
+
+Examples may include:
+
+- Employee has clocked in
+- Employee has not clocked in
+- Employee has no assigned work schedule
+- Employee has an assigned cadre
+- Employee has no assigned cadre
+- Employee has an active loan
+- Employee has no active loan
+- Employee has unread announcements
+- Employee has no unread announcements
+- Team member is online
+- Team member is celebrating a birthday
+- Team member is on leave
+- Employee has performance data
+- Employee has no performance cycle
+- Employee has assigned learning
+- Employee has no learning assigned
+
+Only document states that are already implemented.
+
+Do not add new states.
+
+---
+
+# 10. CURRENT CARD ARRANGEMENT
+
+Document:
+
+- Current card order
+- Current card placement
+- Current rows and columns
+- Current card widths
+- Current card heights
+- Current spacing
+- Current masonry or grid behaviour
+- Current drag-and-drop behaviour
+- Current reflow behaviour
+
+Do not rearrange any cards.
+
+---
+
+# 11. RESPONSIVE AUDIT
+
+Document the current Employee Workspace at:
+
+- Desktop — 1440px
+- Tablet
+- Mobile
+
+For each breakpoint, document:
+
+- Header behaviour
+- Workspace layout
+- Card arrangement
+- Card sizing
+- Workspace Management behaviour
+- Module visibility behaviour
+- Drag-and-drop behaviour
+- Any current limitations or inconsistencies
+
+Do not make responsive fixes.
+
+---
+
+# 12. CURRENT KNOWN LIMITATIONS
+
+List only issues that are already present in the current implementation, such as:
+
+- Incomplete functionality
+- Placeholder content
+- Missing interactions
+- Unclear plan assignment
+- Responsive inconsistencies
+- Temporary implementations
+- Unimplemented states
+
+Do not fix anything.
+
+Do not suggest a redesign.
+
+---
+
+# REQUIRED OUTPUT
+
+Generate one complete downloadable Markdown file:
+
+`Employee-Workspace-Current-State.md`
+
+The document must be:
+
+- Accurate
+- Complete
+- Structured
+- Easy to compare with stakeholder requirements
+- Based only on the current implementation
+- Free from assumptions
+- Free from proposed changes
+
+---
+
+# FINAL PROTECTION RULE
+
+This is an audit-only task.
+
+Do not modify the Employee Workspace.
+
+Do not change the design.
+
+Do not change the code.
+
+Do not change the layout.
+
+Do not change card placement.
+
+Do not add or remove modules.
+
+Do not change plan visibility.
+
+Do not update content.
+
+Do not alter Workspace Management.
+
+Do not make responsive changes.
+
+Only inspect the existing implementation and generate:
+
+`Employee-Workspace-Current-State.md`

@@ -1,0 +1,334 @@
+# EMPLOYEE WORKSPACE — PLAN-SPECIFIC CARD WIDTH CORRECTION & IDENTITY CARD FORMATTING
+
+IMPORTANT:
+
+Do not redesign the Employee Workspace.
+
+Do not change the approved visual design, card styles, colours, typography, card content, Workspace Management, or existing functionality.
+
+This is a focused correction to:
+
+1. Card widths in HR Premium
+2. Card widths in HR Standard
+3. Card widths in HR Basic and Payroll
+4. The internal information layout of the Employee Identity Card
+
+Do not make unrelated card-width changes.
+
+Do not change cards that are not listed in this prompt.
+
+---
+
+# 1. HR PREMIUM — CORRECT CARD WIDTHS
+
+Review the current HR Premium workspace only.
+
+The following cards are currently too wide and contain unnecessary horizontal space:
+
+- Employees on Leave
+- Employee Directory
+- Performance Overview
+- Payroll
+
+Reduce the width of these cards only enough to remove unnecessary empty horizontal space.
+
+Do not make them narrow.
+
+Do not compress their content.
+
+Do not reduce their width below what is required to display their information clearly.
+
+The final width should professionally fit the content and contribute to a balanced row.
+
+The following card is currently too narrow:
+
+- Workforce Highlights / Birthday card with its tabs
+
+Increase the width of this card so that:
+
+- The tab labels have enough space.
+- Birthdays are easy to view.
+- Work Anniversaries display properly.
+- Holidays display properly.
+- Events display properly.
+- Tabs do not feel compressed.
+- Tab labels do not wrap unnecessarily.
+- Content does not feel crowded.
+
+Do not redesign the card.
+
+Do not separate the tabs into individual cards.
+
+Keep all existing tabs inside the same Workforce Highlights card.
+
+After adjusting these widths, allow the row to rebalance naturally.
+
+Do not leave unused grid space.
+
+Do not create an unnecessary additional row.
+
+---
+
+# 2. HR STANDARD — CORRECT CARD WIDTHS
+
+Review the current HR Standard workspace only.
+
+The following cards are currently too wide:
+
+- Employees on Leave
+- Employee Directory
+- Payroll
+
+Reduce the width of these cards only enough to remove unnecessary horizontal space.
+
+Do not make them too narrow.
+
+Do not compress employee information, financial information, or card actions.
+
+The following card is currently too narrow:
+
+- Workforce Highlights / Birthday card with its tabs
+
+Increase the width of this card so that:
+
+- All tabs have comfortable spacing.
+- Tab labels remain readable.
+- Birthdays display properly.
+- Work Anniversaries display properly.
+- Holidays display properly.
+- Events display properly.
+- Tabs do not wrap unnecessarily.
+- The card content is not crowded.
+
+Do not redesign the card.
+
+Keep all four tabs inside the existing Workforce Highlights card.
+
+Allow the row to rebalance naturally after the width changes.
+
+Do not create unnecessary empty space.
+
+Do not create an additional row unless the existing responsive system requires it.
+
+---
+
+# 3. HR BASIC AND PAYROLL — CORRECT CARD WIDTHS
+
+Review the current HR Basic and Payroll workspace only.
+
+The following cards are currently too wide:
+
+- Employee Directory
+- Payroll
+
+Reduce their width only enough to remove unnecessary horizontal space.
+
+Do not make them too narrow.
+
+Ensure:
+
+- Employee names remain readable.
+- Employee roles remain readable.
+- Avatars and Chat actions remain properly aligned.
+- Payroll information remains clear.
+- Payroll tabs remain usable.
+- Nigerian Naira values remain readable.
+
+The following card is currently too narrow:
+
+- Workforce Highlights / Birthday card with its tabs
+
+Increase the width of this card so that:
+
+- Birthdays display comfortably.
+- Work Anniversaries display comfortably.
+- Holidays display comfortably.
+- Events display comfortably.
+- Tabs have enough horizontal space.
+- Tab labels do not feel compressed.
+- Content is not crowded.
+
+Do not redesign the card.
+
+Keep all tabs inside the existing Workforce Highlights card.
+
+Allow the row to rebalance naturally.
+
+Do not leave unnecessary empty space.
+
+---
+
+# 4. CARD WIDTH PRINCIPLE
+
+Apply the corrections independently to each plan.
+
+Do not copy the same widths across:
+
+- HR Basic and Payroll
+- HR Standard
+- HR Premium
+
+Each plan has a different set of cards and should use its available row width differently.
+
+Use the existing fluid card-width system.
+
+The final card widths should be based on:
+
+- Actual content density
+- Tab requirements
+- Data complexity
+- Available row space
+- The other cards visible in that plan
+
+Cards should:
+
+- Have enough width to display their information properly.
+- Not have unnecessary empty width.
+- Not be compressed.
+- Not be stretched simply to fill a row.
+- Professionally hug their content.
+- Fit together cleanly within their rows.
+
+Do not force all cards to have equal widths.
+
+Do not force all rows to contain the same number of cards.
+
+Do not change card widths that are not specifically listed in this prompt.
+
+---
+
+# 5. EMPLOYEE IDENTITY CARD — FORMAT LIKE ATTENDANCE TODAY
+
+Do not redesign the Employee Identity Card.
+
+Keep:
+
+- The current card style.
+- The current employee information.
+- The current card title.
+- The existing emojis.
+- The existing icon/emoji treatment.
+- The existing View Profile action.
+- The existing protected and non-removable behaviour.
+
+The emojis on the Identity Card are approved and should remain.
+
+Update only the internal information layout.
+
+Style the employee information rows using the same visual structure as the information rows in the existing **Attendance Today** card.
+
+For each Identity Card information item:
+
+- Keep the emoji or icon on the left.
+- Keep the information label on the left.
+- Place the corresponding value on the right.
+- Use a clear horizontal row layout.
+- Use `space-between` alignment.
+- Keep the left label visually secondary.
+- Make the right-side value visually stronger and bold.
+- Maintain consistent vertical spacing between rows.
+- Align all right-side values consistently.
+- Prevent unnecessary text wrapping.
+- Preserve comfortable padding.
+
+Use the existing Attendance Today card as the exact visual reference for:
+
+- Row spacing
+- Label/value hierarchy
+- Left/right alignment
+- Bold right-side values
+- Information density
+
+Do not copy Attendance content into the Identity Card.
+
+Only reuse its information-row layout pattern.
+
+The Identity Card should continue to display information such as:
+
+- 🏢 Department → Design
+- 🎖️ Cadre Level → Only when configured
+- 👤 Employee ID → #1042
+- 📅 Joined → Jan 2023
+- ⭐ Tenure → 3 Years
+- 👩 Manager → Amaka Eze
+
+The emoji and label remain on the left.
+
+The value remains on the right and is bold.
+
+Do not display Cadre Level when the employee does not have a configured cadre.
+
+Do not show an empty Cadre Level row.
+
+---
+
+# 6. FINAL VALIDATION
+
+Before completing, validate all three plans separately.
+
+## HR Premium
+
+Confirm:
+
+- Employees on Leave no longer has unnecessary width.
+- Employee Directory no longer has unnecessary width.
+- Performance Overview no longer has unnecessary width.
+- Payroll no longer has unnecessary width.
+- Workforce Highlights has enough width for all tabs.
+- The row is balanced.
+- No unnecessary empty space exists.
+
+## HR Standard
+
+Confirm:
+
+- Employees on Leave no longer has unnecessary width.
+- Employee Directory no longer has unnecessary width.
+- Payroll no longer has unnecessary width.
+- Workforce Highlights has enough width for all tabs.
+- The row is balanced.
+- No unnecessary empty space exists.
+
+## HR Basic and Payroll
+
+Confirm:
+
+- Employee Directory no longer has unnecessary width.
+- Payroll no longer has unnecessary width.
+- Workforce Highlights has enough width for all tabs.
+- The row is balanced.
+- No unnecessary empty space exists.
+
+## Identity Card
+
+Confirm:
+
+- Existing emojis remain.
+- Labels remain on the left.
+- Values are aligned on the right.
+- Values are bold.
+- Rows use the same information structure as Attendance Today.
+- Spacing is clean and consistent.
+- Cadre is conditional.
+- No content was removed.
+- The Identity Card was not redesigned.
+
+---
+
+# FINAL PROTECTION RULE
+
+Do not redesign the Employee Workspace.
+
+Do not change unrelated cards.
+
+Do not change card content.
+
+Do not change the approved visual language.
+
+Only:
+
+1. Reduce unnecessary width on the specified cards for each plan.
+2. Increase the Workforce Highlights / Birthday card width so its tabs and content display properly.
+3. Rebalance the affected rows using the existing fluid grid.
+4. Format Identity Card information rows like Attendance Today.
+5. Keep all Identity Card emojis exactly as they are.

@@ -1,0 +1,11 @@
+{
+  "title": "NotchHR Employee Themes",
+  "description": "Creates responsive web designs optimized for 1440px screens, enabling designers to visualize and refine layouts for desktop displays efficiently.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
