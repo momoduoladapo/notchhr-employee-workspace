@@ -128,4 +128,6 @@ export const router = createBrowserRouter([
 
   // ── 404 catch-all ────────────────────────────────────────────────────
   { path: "*", element: <Page><NotFoundPage /></Page> },
-]);
+], {
+  basename: import.meta.env.BASE_URL,
+});
